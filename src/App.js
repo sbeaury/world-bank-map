@@ -18,15 +18,13 @@ class App extends Component {
       searchCriteria: "",
       error: false
     };
-    this.onCriteriaChange = this.onCriteriaChange.bind(this);
-    this.setCountryArray = this.setCountryArray.bind(this);
   }
 
   componentDidMount() {
     this.setState({ arrData: [["Country", "Indicator"]] });
   }
 
-  setCountryArray(element, result) {
+  setCountryArray = (element, result) => {
     const { arrData } = this.state;
     const value = Math.round(result.data[1][0].value / (10 ^ 6)).toLocaleString(
       "en"
@@ -38,9 +36,9 @@ class App extends Component {
       arrData: [...arrData, ["Country", "Indicator"], [element.country, value]]
     });
     console.log(this.setState.arrData);
-  }
+  };
 
-  onCriteriaChange(event) {
+  onCriteriaChange = event => {
     this.setState({ searchCriteria: event.target.value });
 
     const { searchCriteria } = this.state;
@@ -54,7 +52,7 @@ class App extends Component {
         .then(resp => this.setCountryArray(element, resp))
         .catch(error => this.setState({ error }));
     });
-  }
+  };
 
   render() {
     const { arrData } = this.state;
