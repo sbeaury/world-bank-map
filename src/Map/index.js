@@ -12,8 +12,20 @@ const Map = ({ data }) => (
     // mapsApiKey="YOUR_KEY_HERE"
     rootProps={{ "data-testid": "1" }}
     options={{
-      backgroundColor: "#003366"
+      backgroundColor: "transparent"
     }}
+    chartEvents={[
+      {
+        eventName: "select",
+        callback: ({ chartWrapper }) => {
+          const chart = chartWrapper.getChart();
+          const selection = chart.getSelection();
+          if (selection.length === 0) return;
+          const region = data[selection[0].row + 1];
+          console.log("Selected : " + region);
+        }
+      }
+    ]}
   />
 );
 

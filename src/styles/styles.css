@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css?family=Reem+Kufi&display=swap");
+
+html {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-color: #52c8cc;
+  background-image: linear-gradient(
+    0deg,
+    rgba(252, 213, 38, 0),
+    rgba(252, 213, 38, 0.3)
+  );
+  background-size: 100% 100%;
+  height: 100%;
+  font-family: "Reem Kufi", sans-serif;
+  font-size: 1.5rem;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  margin-top: 10%;
+  font-weight: 900;
+}
+
+.container-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 2%;
+}
+
+.container-map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 0;
+  margin-left: 5%;
+}
+
+.search-icon {
+  transition: all 0.2s ease-in-out;
+}
+
+.search-icon:hover {
+  transform: scale(1.5);
+}
