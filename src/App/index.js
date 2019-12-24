@@ -30,8 +30,9 @@ class App extends Component {
       currency: "USD",
       maximumSignificantDigits: 3
     });
-    const value = formatter.format(result.data[1][0].value / (10 ^ 6));
-
+    // const value = formatter.format(result.data[1][0].value / (10 ^ 6));
+    const value = Number(result.data[1][0].value / (10 ^ 6));
+    console.log(typeof value);
     this.setState({
       arrData: [...arrData, [element.country, value]]
     });
@@ -48,6 +49,15 @@ class App extends Component {
     const { searchCriteria, arrCountry } = this.state;
 
     console.log(searchCriteria);
+    //   data={[
+    //   ['Country', 'Popularity'],
+    //   ['Germany', 200],
+    //   ['United States', 300],
+    //   ['Brazil', 400],
+    //   ['Canada', 500],
+    //   ['France', 600],
+    //   ['RU', 700],
+    // ]}
 
     arrCountry.map(element => {
       axios(
