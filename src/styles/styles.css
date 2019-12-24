@@ -53,3 +53,48 @@ html {
 .search-icon:hover {
   transform: scale(1.5);
 }
+
+span.jumping-dots > span {
+  -webkit-animation: dancing-dots-jump 1800ms infinite;
+  padding: 1px;
+  position: relative;
+}
+
+/* 1 */
+span.jumping-dots > span:nth-child(2) {
+  -webkit-animation-delay: 100ms;
+}
+
+span.jumping-dots > span:nth-child(3) {
+  -webkit-animation-delay: 300ms;
+}
+
+.jumping-dots {
+  -webkit-animation: dancing-dots-jump 1800ms infinite;
+  padding: 1px;
+  position: relative;
+}
+
+@-webkit-keyframes dancing-dots-jump {
+  0% {
+    top: 0;
+  }
+  55% {
+    top: 0;
+  }
+  60% {
+    top: -10px;
+  }
+  80% {
+    top: 3px;
+  }
+  90% {
+    top: -2px;
+  }
+  95% {
+    top: 1px;
+  }
+  100% {
+    top: 0;
+  }
+}

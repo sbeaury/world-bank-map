@@ -1,23 +1,19 @@
 import React, { Component } from "react";
 import Map from "../Map";
-import Search from "../Search";
 import CountrySelect from "../CountrySelect";
 import axios from "axios";
 import { GoSearch } from "react-icons/go";
 import * as API from "../constants/api";
+const countries = require("../countries.json");
+
+console.log("This app is using the following API:\n", API.BASE_PATH);
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       arrData: [["Country", "Indicator"]],
-      arrCountry: [
-        { country: "France", code: "FRA" },
-        { country: "Canada", code: "CAN" },
-        { country: "Morocco", code: "MAR" },
-        { country: "US", code: "USA" }
-      ],
-      searchCriteria: "",
+      arrCountry: countries,
       isSelected: false,
       error: false
     };
@@ -28,11 +24,12 @@ class App extends Component {
     const formatter = new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
-      maximumSignificantDigits: 3
+      minimumFractionDigits: 3,
+      useGrouping: true
     });
-    // const value = formatter.format(result.data[1][0].value / (10 ^ 6));
+    // const value = formatter.format(Number(result.data[1][0].value / (10 ^ 6)));
     const value = Number(result.data[1][0].value / (10 ^ 6));
-    console.log(typeof value);
+
     this.setState({
       arrData: [...arrData, [element.country, value]]
     });
@@ -44,26 +41,18 @@ class App extends Component {
   };
 
   handleCountryChange = event => {
-    this.setState({ searchCriteria: event.target.value, isSelected: true });
-
-    const { searchCriteria, arrCountry } = this.state;
-
-    console.log(searchCriteria);
-    //   data={[
-    //   ['Country', 'Popularity'],
-    //   ['Germany', 200],
-    //   ['United States', 300],
-    //   ['Brazil', 400],
-    //   ['Canada', 500],
-    //   ['France', 600],
-    //   ['RU', 700],
-    // ]}
+    const searchCriteria = event.target.value;
+    const { arrCountry } = this.state;
+    this.setState({ isSelected: true });
 
     arrCountry.map(element => {
-      axios(
-        `https://api.worldbank.org/v2/countries/${element.code}/indicators/${searchCriteria}?date=2017&format=json`
+      return axios(
+        `${API.BASE_PATH}${element.code}/indicators/${searchCriteria}${API.CRITERIAS}`
       )
-        .then(resp => this.setCountryArray(element, resp))
+        .then(resp => {
+          this.setCountryArray(element, resp);
+          console.log(searchCriteria);
+        })
         .catch(error => this.setState({ error }));
     });
   };
