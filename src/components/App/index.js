@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Map from "../Map";
 import CountrySelect from "../CountrySelect";
+// import Globe from "../Loader";
 import axios from "axios";
 import { GoSearch } from "react-icons/go";
-import * as API from "../constants/api";
-const countries = require("../countries.json");
+import * as API from "../../constants/api";
+const countries = require("../../countries.json");
 
 console.log("This app is using the following API:\n", API.BASE_PATH);
 
