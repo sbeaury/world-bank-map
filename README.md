@@ -4,7 +4,7 @@ Interactive map based on the [World Bank Open Data API](https://datahelpdesk.wor
 
 ![](header.png)
 
-<!-- ![alt text](https://www.worldbank.org/content/dam/wbr/share-logo/social-share.jpg =250x "World Bank") -->
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d8ea647e-d264-4799-9f36-7c7a380e99d2/deploy-status)](https://app.netlify.com/sites/world-bank-map/deploys)
 
 <img src="https://www.worldbank.org/content/dam/wbr/share-logo/social-share.jpg" width="200">
 
