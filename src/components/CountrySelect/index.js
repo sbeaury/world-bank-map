@@ -54,8 +54,8 @@ const CountrySelect = ({ onChange }) => {
           <MenuItem value="" disabled>
             <JumpingDots />
           </MenuItem>
-          <MenuItem value="NY.GDP.MKTP.CD">the richest?</MenuItem>
-          <MenuItem value="SL.GDP.PCAP.EM.KD">the richest per capita?</MenuItem>
+          <MenuItem value="Gdp">the richest?</MenuItem>
+          <MenuItem value="GdpPerCapita">the richest per capita?</MenuItem>
         </Select>
       </FormControl>
     </div>
