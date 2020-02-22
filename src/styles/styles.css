@@ -23,7 +23,7 @@ html {
 .flex-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: 100%;
   margin-top: 10%;
   font-weight: 900;

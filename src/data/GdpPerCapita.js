@@ -2,37 +2,31 @@ const data = [
   { ISO3: "ARB", value: 52195.5672387307 },
   { ISO3: "CSS", value: 32289.0211639575 },
   { ISO3: "CEB", value: 57412.9631219096 },
-  { ISO3: "EAR", value: 22838.6852353646 },
+
   { ISO3: "EAS", value: 31534.5433038309 },
-  { ISO3: "EAP", value: 25508.2786824358 },
-  { ISO3: "TEA", value: 25845.4749924844 },
-  { ISO3: "EMU", value: 89918.2318909819 },
+
   { ISO3: "ECS", value: 67470.406934041 },
   { ISO3: "ECA", value: 44484.1120883399 },
-  { ISO3: "TEC", value: 45826.4240448644 },
-  { ISO3: "EUU", value: 82988.5904457713 },
+
   { ISO3: "FCS", value: 11309.1831979486 },
   { ISO3: "HPC", value: 5707.67357010488 },
-  { ISO3: "", value: 92914.1688719008 },
+
   { ISO3: "IBD", value: 28198.1125486408 },
   { ISO3: "IBT", value: 23953.635173431 },
   { ISO3: "IDB", value: 14604.0637920836 },
   { ISO3: "IDX", value: 6511.64419069803 },
   { ISO3: "IDA", value: 8988.07803940948 },
   { ISO3: "LTE", value: 31091.3656191109 },
-  { ISO3: "LCN", value: 32353.8966004298 },
-  { ISO3: "LAC", value: 31236.274828089 },
-  { ISO3: "TLA", value: 32060.817074683 },
+
   { ISO3: "LDC", value: 6370.24630473989 },
   { ISO3: "LMY", value: 23460.064474872 },
-  { ISO3: "", value: 4066.17359185971 },
-  { ISO3: "", value: 17119.2188057238 },
+
   { ISO3: "MEA", value: 59100.3141985917 },
   { ISO3: "MNA", value: 44020.8977142312 },
   { ISO3: "TMN", value: 44218.5265813504 },
   { ISO3: "MIC", value: 25680.6366576017 },
   { ISO3: "NAC", value: 109788.631340768 },
-  { ISO3: "", value: null },
+
   { ISO3: "OED", value: 85663.6647430255 },
   { ISO3: "OSS", value: 59235.5473209242 },
   { ISO3: "PSS", value: 14300.9330861833 },
@@ -44,7 +38,7 @@ const data = [
   { ISO3: "SSF", value: 9702.07777261493 },
   { ISO3: "SSA", value: 9702.07777261493 },
   { ISO3: "TSS", value: 9702.07777261493 },
-  { ISO3: "", value: 33299.0072023391 },
+
   { ISO3: "WLD", value: 35760.9966974655 },
   { ISO3: "AFG", value: 4900.77587890625 },
   { ISO3: "ALB", value: 28917.279296875 },

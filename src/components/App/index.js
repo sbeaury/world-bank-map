@@ -1,11 +1,34 @@
 import React, { useState, useEffect, memo } from "react";
-import MapChart from "../Map/Map";
+import MapChart from "../Map";
 import CountrySelect from "../CountrySelect";
 import axios from "axios";
 import { GoSearch } from "react-icons/go";
 import * as API from "../../constants/api";
 import ReactTooltip from "react-tooltip";
 import styled from "styled-components";
+import Fade from "react-reveal/Fade";
+
+const topThree = [0, 1, 2];
+
+const IsoCodes = require(`../../data/IsoCodes`).codes;
+
+const getMaxValues = array => {
+  const arrayToFilter = array
+    .sort((a, b) => {
+      return b.value - a.value;
+    })
+    .slice(0, 4);
+  let result = [];
+  arrayToFilter.map(elt => {
+    const filter = IsoCodes.filter(iso => iso.code === elt.ISO3);
+
+    if (filter.length) {
+      result.push(filter[0].country);
+    }
+  });
+  console.log(result);
+  return result;
+};
 
 const Footer = styled.div`
   display: flex;
@@ -15,18 +38,19 @@ const Footer = styled.div`
 
 const App = () => {
   const [content, setContent] = useState("");
-  const [data, setData] = useState([]);
+  const [dataFile, setDataFile] = useState([]);
+  const [data, setDataSet] = useState([]);
   const [isSelected, setSelected] = useState(false);
 
   useEffect(() => {
-    setData([]);
+    setDataFile([]);
+    setDataSet([]);
   }, []);
 
   const handleChange = e => {
-    console.log(e.target.value);
-    const dataSet = require(`../../data/${e.target.value}`);
-    console.log(dataSet);
-    setData(dataSet.data);
+    const dataFile = require(`../../data/${e.target.value}`);
+    setDataFile(dataFile);
+    setDataSet(dataFile.data);
     setSelected(true);
   };
 
@@ -39,14 +63,23 @@ const App = () => {
       ) : null}
       {isSelected ? (
         <div>
+          <Fade left cascade>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              {topThree.map(index => (
+                <h2 style={{ margin: "1rem 0.5rem 0 0.5rem" }}>
+                  {index + 1}.{getMaxValues(data)[index]}
+                </h2>
+              ))}
+            </div>
+          </Fade>
           <MapChart data={data} setTooltipContent={setContent} />
           <ReactTooltip>{content}</ReactTooltip>
           <Footer>
-            Created with{" "}
+            Created with
             <span role="img" aria-label="heart">
               ❤️
             </span>
-            using{" "}
+            using
             <a href="https://www.react-simple-maps.io/">
               <img
                 style={{ height: "1.3rem" }}

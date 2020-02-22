@@ -41,9 +41,10 @@ const CountrySelect = ({ onChange }) => {
 
   return (
     <div className="flex-container">
-      <p>What country is </p>
+      <p style={{ fontSize: "1.5rem" }}>What country is </p>
       <FormControl className={classes.formControl}>
         <Select
+          id="select"
           className={classes.selectEmpty}
           onChange={onChange}
           displayEmpty
