@@ -3,10 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import styled from "styled-components";
 
 const useStyles = makeStyles(theme => ({
   formControl: {
-    margin: theme.spacing(1),
     minWidth: 120
   },
   selectEmpty: {
@@ -21,6 +21,24 @@ const useStyles = makeStyles(theme => ({
     }
   }
 }));
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Title = styled.h1`
+  font-size: 1.5rem;
+
+  @media screen and (max-width: 375px) {
+    font-size: 1rem;
+  }
+`;
+
+const StyledSelect = styled(Select)`
+  margin-right: 0;
+`;
 
 const Empty = () => {
   return <></>;
@@ -40,10 +58,10 @@ const CountrySelect = ({ onChange }) => {
   const classes = useStyles();
 
   return (
-    <div className="flex-container">
-      <p style={{ fontSize: "1.5rem" }}>What country is </p>
+    <Container>
+      <Title>What country is </Title>
       <FormControl className={classes.formControl}>
-        <Select
+        <StyledSelect
           id="select"
           className={classes.selectEmpty}
           onChange={onChange}
@@ -57,9 +75,9 @@ const CountrySelect = ({ onChange }) => {
           </MenuItem>
           <MenuItem value="Gdp">the richest?</MenuItem>
           <MenuItem value="GdpPerCapita">the richest per capita?</MenuItem>
-        </Select>
+        </StyledSelect>
       </FormControl>
-    </div>
+    </Container>
   );
 };
 
